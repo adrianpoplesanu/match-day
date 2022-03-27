@@ -19,4 +19,8 @@ sudo mysql_secure_installation
 
 sudo mysql -u root
 
-mysql > CREATE USER 'matchday'@'localhost' IDENTIFIED BY 'matchday';
+mysql> CREATE USER 'matchday'@'localhost' IDENTIFIED BY 'matchday';
+
+mysql> GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'matchday'@'localhost' WITH GRANT OPTION;
+
+mysql> FLUSH PRIVILEGES;
