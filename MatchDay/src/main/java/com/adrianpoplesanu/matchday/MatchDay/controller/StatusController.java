@@ -9,6 +9,6 @@ public class StatusController {
     @GetMapping("/status")
     @ResponseBody
     public String test() {
-        return "aaa";
+        return "Status: 200 OK";
     }
 }
