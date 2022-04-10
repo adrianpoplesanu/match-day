@@ -17,6 +17,12 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "role")
+    private String role;
+
+    @Column(name = "enabled")
+    private boolean enabled;
+
     @Column(name = "provider")
     @Enumerated(EnumType.STRING)
     private Provider provider;
@@ -73,5 +79,21 @@ public class User {
 
     public void setGoogleEmail(String googleEmail) {
         this.googleEmail = googleEmail;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
     }
 }

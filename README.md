@@ -24,3 +24,16 @@ mysql> CREATE USER 'matchday'@'localhost' IDENTIFIED BY 'matchday';
 mysql> GRANT CREATE, ALTER, DROP, INSERT, UPDATE, DELETE, SELECT, REFERENCES, RELOAD on *.* TO 'matchday'@'localhost' WITH GRANT OPTION;
 
 mysql> FLUSH PRIVILEGES;
+
+// grant did not work in this form in the docker container, however this worked: GRANT ALL PRIVILEGES ON *.* TO 'matchday'@'localhost';
+
+// also had to run this in the container:
+mysql> CREATE USER 'matchday'@'172.19.0.1' IDENTIFIED BY 'matchday';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'matchday'@'172.19.0.1';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.01 sec)
+
