@@ -5,6 +5,7 @@ import com.adrianpoplesanu.matchday.MatchDay.provider.Provider;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @Column(name = "userid")
