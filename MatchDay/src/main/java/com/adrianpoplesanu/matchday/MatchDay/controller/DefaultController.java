@@ -1,17 +1,25 @@
 package com.adrianpoplesanu.matchday.MatchDay.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@CrossOrigin(origins = {"https://adrianus.ro", "https://aaa"})
 public class DefaultController {
     @GetMapping("/status")
     @ResponseBody
     public String test() {
         return "Status: 200 OK";
     }
+
+    /*@GetMapping("/")
+    @ResponseBody
+    public String index() {
+        return "Status: 200 OK";
+    }*/
 
     /*@GetMapping("/login")
     public ModelAndView login() {
