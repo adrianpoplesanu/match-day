@@ -12,7 +12,7 @@ public class DefaultController {
     @GetMapping("/status")
     @ResponseBody
     public String test() {
-        return "Status: 200 OK";
+        return "Status: 200 OK<form action=\"/logout\" method=\"POST\"><button type=\"submit\" value=\"logout\">logout</button></form>";
     }
 
     /*@GetMapping("/")

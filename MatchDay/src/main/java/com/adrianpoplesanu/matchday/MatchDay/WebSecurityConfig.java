@@ -71,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
+        http.csrf().disable().authorizeRequests()
                 .antMatchers("/", "/login", "/oauth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -97,12 +97,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
                         userService.processOAuth2PostLogin(oauthUser.getEmail());
 
-                        response.sendRedirect("/list");
+                        response.sendRedirect("/status");
                     }
                 })
                 //.defaultSuccessUrl("/list")
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll()
+                .logout().logoutSuccessUrl("/login").permitAll()
+
+                //.invalidateHttpSession(true)
+                //.clearAuthentication(true).logoutSuccessUrl("/login?logout").deleteCookies("JSESSIONID").permitAll()
+
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
         ;
