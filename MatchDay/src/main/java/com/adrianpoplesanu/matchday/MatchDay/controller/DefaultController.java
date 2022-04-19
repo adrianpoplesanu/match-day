@@ -15,6 +15,12 @@ public class DefaultController {
         return "Status: 200 OK<form action=\"/logout\" method=\"POST\"><button type=\"submit\" value=\"logout\">logout</button></form>";
     }
 
+    @GetMapping("/")
+    @ResponseBody
+    public String index() {
+        return "load app.html";
+    }
+
     /*@GetMapping("/")
     @ResponseBody
     public String index() {
